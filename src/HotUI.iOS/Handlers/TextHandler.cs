@@ -40,9 +40,9 @@ namespace HotUI.iOS
 	        Mapper.UpdateProperty(this, property, value);
         }
         
-        public static bool MapValueProperty(TextHandler nativeView, Text virtualView)
+        public static bool MapValueProperty(TextHandler nativeView, object value)
         {
-            nativeView.Text = virtualView.Value;
+            nativeView.Text = (string)value;
             nativeView.SizeToFit();
             return true;
         }
