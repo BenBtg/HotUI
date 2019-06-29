@@ -39,9 +39,9 @@ namespace HotUI.UWP.Handlers
             Mapper.UpdateProperty(_textBlock, _text, property);
         }
 
-        public static bool MapValueProperty(UWPLabel nativeView, Text virtualView)
+        public static bool MapValueProperty(UWPLabel nativeView, object value)
         {
-            nativeView.Text = virtualView.Value;
+            nativeView.Text = (string)value;
             return true;
         }
     }

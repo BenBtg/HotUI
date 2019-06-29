@@ -41,9 +41,9 @@ namespace HotUI.UWP.Handlers
 
         private void HandleClick(object sender, RoutedEventArgs e) => _button?.OnClick();
 
-        public static bool MapTextProperty(UWPButton nativeButton, Button virtualButton)
+        public static bool MapTextProperty(UWPButton nativeButton, object value)
         {
-            nativeButton.Content = virtualButton.Text;
+            nativeButton.Content = (string)value;
             return true;
         }
     }

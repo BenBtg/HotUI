@@ -35,9 +35,9 @@ namespace HotUI.WPF.Handlers
             Mapper.UpdateProperty(this, property, value);
         }
 
-        public static bool MapValueProperty(WPFLabel nativeView, Text virtualView)
+        public static bool MapValueProperty(WPFLabel nativeView, object value)
         {
-            nativeView.Content = virtualView.Value;
+            nativeView.Content = (string)value;
             return true;
         }
     }

@@ -36,7 +36,7 @@ namespace HotUI.WPF.Handlers
             Mapper.UpdateProperty(this, property, value);
         }
         
-        public static bool MapTextProperty(WPFTextField nativeView, TextField virtualView)
+        public static bool MapTextProperty(WPFTextField nativeView, object value)
         {
             nativeView.Text = virtualView.Text;
             //nativeView.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));

@@ -40,7 +40,7 @@ namespace HotUI.WPF.Handlers
             Mapper.UpdateProperty(this, property, value);
         }
 
-        public static bool MapBodyProperty(ViewHandler nativeView, View virtualView)
+        public static bool MapBodyProperty(ViewHandler nativeView, object value)
         {
             var uiElement = virtualView?.ToIUIElement();
             if (uiElement?.GetType() == typeof(ViewHandler) && virtualView.Body == null)

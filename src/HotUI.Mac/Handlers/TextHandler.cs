@@ -39,33 +39,11 @@ namespace HotUI.Mac.Handlers
             Mapper.UpdateProperty(this, property, value);
         }
         
-        public static bool MapValueProperty(NSTextField nativeView, Text virtualView)
+        public static bool MapValueProperty(NSTextField nativeView, object value)
         {
-            nativeView.StringValue = virtualView.Value;
+            nativeView.StringValue = (string)value;
             nativeView.SizeToFit();
             return true;
-        }
-    }
-
-    public static partial class ControlExtensions
-    {
-        public static void UpdateLabelProperties(this NSTextField view, Text hView)
-        {
-            view.UpdateLabelProperty(nameof(Text.Value), hView?.Value);
-            view.UpdateBaseProperties(hView);
-        }
-
-        public static bool UpdateLabelProperty(this NSTextField view, string property, object value)
-        {
-            switch (property)
-            {
-                case nameof(Text.Value):
-                    view.StringValue = (string) value;
-                    view.SizeToFit();
-                    return true;
-            }
-
-            return view.UpdateBaseProperty(property, value);
         }
     }
 }

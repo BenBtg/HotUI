@@ -37,9 +37,9 @@ namespace HotUI.Mac.Handlers
             Mapper.UpdateProperty(this, property, value);
         }
 
-        public static bool MapTextProperty(NSButton nativeButton, Button virtualButton)
+        public static bool MapTextProperty(NSButton nativeButton, object value)
         {
-            nativeButton.Title = virtualButton.Text;
+            nativeButton.Title = (string)value;
             nativeButton.SizeToFit();
             return true;
         }

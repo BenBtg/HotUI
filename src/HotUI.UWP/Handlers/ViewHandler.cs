@@ -39,8 +39,9 @@ namespace HotUI.UWP.Handlers
             Mapper.UpdateProperties(this, _view);
         }
 
-        public static bool MapBodyProperty(ViewHandler nativeView, View virtualView)
+        public static bool MapBodyProperty(ViewHandler nativeView, object value)
         {
+            var virtualView = (View) value;
             var uiElement = virtualView?.ToIUIElement();
             if (uiElement?.GetType() == typeof(ViewHandler) && virtualView.Body == null)
             {

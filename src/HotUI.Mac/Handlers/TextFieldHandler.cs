@@ -39,9 +39,9 @@ namespace HotUI.Mac.Handlers
             Mapper.UpdateProperty(this, property, value);
         }
         
-        public static bool MapTextProperty(NSTextField nativeView, TextField virtualView)
+        public static bool MapTextProperty(NSTextField nativeView, object value)
         {
-            nativeView.StringValue = virtualView.Text;
+            nativeView.StringValue = (string)value;
             nativeView.SizeToFit();
             return true;
         }
