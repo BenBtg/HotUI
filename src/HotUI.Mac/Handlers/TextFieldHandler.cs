@@ -36,7 +36,7 @@ namespace HotUI.Mac.Handlers
 
         public void UpdateValue(string property, object value)
         {
-            Mapper.UpdateProperty(this, _textField, property);
+            Mapper.UpdateProperty(this, property, value);
         }
         
         public static bool MapTextProperty(NSTextField nativeView, TextField virtualView)

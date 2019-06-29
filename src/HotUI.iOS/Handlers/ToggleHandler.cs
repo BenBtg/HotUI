@@ -34,12 +34,12 @@ namespace HotUI.iOS
 
         public void UpdateValue(string property, object value)
         {
-            Mapper.UpdateProperty(this, toggle, property);
+            Mapper.UpdateProperty(this, property, value);
         }
-
-        public static bool MapIsOnProperty(UISwitch nativeView, Toggle virtualView)
+    
+        public static bool MapIsOnProperty(UISwitch nativeView, object value)
         {
-            nativeView.On = virtualView.IsOn;
+            nativeView.On = (bool)value;
             return true;
         }
     }

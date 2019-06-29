@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using Xamarin.Forms;
 using FView = Xamarin.Forms.View;
 using HView = HotUI.View;
 
@@ -34,11 +33,12 @@ namespace HotUI.Forms
 
         public void UpdateValue(string property, object value)
         {
-            Mapper.UpdateProperties(this, _view);
+            Mapper.UpdateProperty(this, property, value);
         }
 
-        public static bool MapBodyProperty(ViewHandler nativeView, View virtualView)
+        public static bool MapBodyProperty(ViewHandler nativeView, object value)
         {
+            var virtualView = (View) value;
             var formsView = virtualView?.ToIFormsView();
             if (formsView?.GetType() == typeof(ViewHandler) && virtualView.Body == null)
             {

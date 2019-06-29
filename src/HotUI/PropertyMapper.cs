@@ -1,27 +1,31 @@
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 
 namespace HotUI
 {
-    public class PropertyMapper<TVirtualView, TNativeView> : Dictionary<string, Func<TNativeView, TVirtualView, bool>>
-    {        
-
-        public void UpdateProperties( TNativeView nativeView, TVirtualView virtualView)
+    public class PropertyMapper<TVirtualView, TNativeView> : Dictionary<string, Func<TNativeView, object, bool>>
+    {
+        private Dictionary<string, PropertyInfo> _properties = new Dictionary<string, PropertyInfo>();
+        
+        public void UpdateProperties(TNativeView nativeView, TVirtualView virtualView)
         {
             if (virtualView == null)
                 return;
-            
+
             foreach (var entry in this)
-                entry.Value.Invoke(nativeView, virtualView);
+            {
+                var propertyName = entry.Key;
+                var property = typeof(TVirtualView).GetProperty(propertyName);
+                var value = property.GetValue(virtualView);
+                entry.Value.Invoke(nativeView, value);
+            }
         }
         
-        public bool UpdateProperty( TNativeView nativeView, TVirtualView virtualView, string property)
+        public bool UpdateProperty(TNativeView nativeView, string property, object value)
         {
-            if (virtualView == null)
-                return false;
-            
             if (TryGetValue(property, out var updater))
-                return updater.Invoke(nativeView, virtualView);
+                return updater.Invoke(nativeView, value);
 
             return false;
         }

@@ -51,7 +51,7 @@ namespace HotUI.iOS
 
         public void UpdateValue(string property, object value)
         {
-            Mapper.UpdateProperty(this, _scroll, property);
+            Mapper.UpdateProperty(this, property, value);
         }
     }
 }

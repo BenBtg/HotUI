@@ -28,7 +28,7 @@ namespace HotUI.WPF.Handlers
 
         public void UpdateValue(string property, object value)
         {
-            Mapper.UpdateProperty(this, _listView, property);
+            Mapper.UpdateProperty(this, property, value);
         }
     }
 }

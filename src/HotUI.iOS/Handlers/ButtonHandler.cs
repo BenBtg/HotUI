@@ -40,7 +40,7 @@ namespace HotUI.iOS
 
         public void UpdateValue(string property, object value)
         {
-            Mapper.UpdateProperty(this, _button, property);
+            Mapper.UpdateProperty(this, property, value);
         }
 
         private void HandleTouchUpInside(object sender, EventArgs e)
@@ -48,9 +48,9 @@ namespace HotUI.iOS
             _button?.OnClick();
         }
 
-        public static bool MapTextProperty(UIButton nativeView, Button virtualView)
+        public static bool MapTextProperty(UIButton nativeView, object value)
         {
-            nativeView.SetTitle(virtualView.Text, UIControlState.Normal);
+            nativeView.SetTitle((string)value, UIControlState.Normal);
             nativeView.SizeToFit();
             return true;
         }

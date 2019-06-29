@@ -38,7 +38,7 @@ namespace HotUI.WPF.Handlers
 
         public void UpdateValue(string property, object value)
         {
-            Mapper.UpdateProperty(this, _button, property);
+            Mapper.UpdateProperty(this, property, value);
         }
 
         private void HandleClick(object sender, EventArgs e) => _button?.OnClick();

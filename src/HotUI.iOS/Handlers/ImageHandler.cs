@@ -41,12 +41,12 @@ namespace HotUI.iOS
 
         public void UpdateValue(string property, object value)
         {
-            Mapper.UpdateProperty(this, _image, property);
+            Mapper.UpdateProperty(this, property, value);
         }
 
-        public static bool MapSourceProperty(ImageHandler nativeView, Image virtualView)
+        public static bool MapSourceProperty(ImageHandler nativeView, object value)
         {
-            nativeView.UpdateSource(virtualView.Source);
+            nativeView.UpdateSource((string)value);
             return true;
         }
         

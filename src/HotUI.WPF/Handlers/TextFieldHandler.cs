@@ -33,7 +33,7 @@ namespace HotUI.WPF.Handlers
 
         public void UpdateValue(string property, object value)
         {
-            Mapper.UpdateProperty(this, _textField, property);
+            Mapper.UpdateProperty(this, property, value);
         }
         
         public static bool MapTextProperty(WPFTextField nativeView, TextField virtualView)

@@ -37,7 +37,7 @@ namespace HotUI.WPF.Handlers
 
         public void UpdateValue(string property, object value)
         {
-            Mapper.UpdateProperties(this, _view);
+            Mapper.UpdateProperty(this, property, value);
         }
 
         public static bool MapBodyProperty(ViewHandler nativeView, View virtualView)

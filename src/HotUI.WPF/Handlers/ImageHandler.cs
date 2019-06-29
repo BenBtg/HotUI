@@ -33,7 +33,7 @@ namespace HotUI.WPF.Handlers
 
         public void UpdateValue(string property, object value)
         {
-            Mapper.UpdateProperty(this, _image, property);
+            Mapper.UpdateProperty(this, property, value);
         }
         
         public static bool MapSourceProperty(ImageHandler nativeView, Image virtualView)

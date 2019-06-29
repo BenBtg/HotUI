@@ -37,8 +37,7 @@ namespace HotUI.iOS
 
         public void UpdateValue(string property, object value)
         {
-			if (Mapper.UpdateProperty (this, _text, property))
-				return;
+	        Mapper.UpdateProperty(this, property, value);
         }
         
         public static bool MapValueProperty(TextHandler nativeView, Text virtualView)
@@ -48,7 +47,7 @@ namespace HotUI.iOS
             return true;
         }
 
-		public static bool MapFontSizeProperty (TextHandler nativeView, Text virtualView)
+		public static bool MapFontSizeProperty (TextHandler nativeView, object value)
 		{
 			var fontSize = (nfloat)virtualView.GetFontSize (nativeView.DefaultFontSize);
 			if (fontSize != nativeView.Font.PointSize) {

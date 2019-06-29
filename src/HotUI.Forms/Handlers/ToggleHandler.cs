@@ -36,13 +36,13 @@ namespace HotUI.Forms
 
         public void UpdateValue(string property, object value)
         {
-            Mapper.UpdateProperty(this, toggle, property);
+            Mapper.UpdateProperty(this, property, value);
         }
 
-        public static bool MapIsOnProperty(ToggleHandler nativeView, Toggle virtualView)
+        public static bool MapIsOnProperty(ToggleHandler nativeView, object value)
         {
-            Console.WriteLine($"Xamarin.Forms Switch should be: {virtualView.IsOn}");
-            nativeView.IsToggled = virtualView.IsOn;
+            Console.WriteLine($"Xamarin.Forms Switch should be: {value}");
+            nativeView.IsToggled = (bool)value;
             return true;
         }
     }

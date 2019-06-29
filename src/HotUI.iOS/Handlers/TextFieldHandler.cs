@@ -41,7 +41,7 @@ namespace HotUI.iOS
 
         public void UpdateValue(string property, object value)
         {
-            Mapper.UpdateProperty(this, _textField, property);
+            Mapper.UpdateProperty(this, property, value);
         }
 
         private void EntryHandler_EditingDidEnd(object sender, EventArgs e)
@@ -49,9 +49,9 @@ namespace HotUI.iOS
             _textField?.Completed(Text);
         }
         
-        public static bool MapTextProperty(TextFieldHandler nativeView, TextField virtualView)
+        public static bool MapTextProperty(TextFieldHandler nativeView, object value)
         {
-            nativeView.Text = virtualView.Text;
+            nativeView.Text = (string)value;
             nativeView.SizeToFit();
             return true;
         }
