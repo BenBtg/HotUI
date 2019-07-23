@@ -18,11 +18,6 @@ namespace HotUI.iOS.Handlers
         protected override UIProgressView CreateView()
         {
             var progressView = new UIProgressView();
-           // progressView. TouchUpInside += HandleTouchUpInside;
-           // progressView.SetTitleColor(UIColor.Blue, UIControlState.Normal);
-            /*Layer.BorderColor = UIColor.Blue.CGColor;
-            Layer.BorderWidth = .5f;
-            Layer.CornerRadius = 3f;*/
 
             return progressView;
         }
@@ -30,14 +25,15 @@ namespace HotUI.iOS.Handlers
 
         public static void MapValueProperty(IViewHandler viewHandler, ProgressBar virtualView)
         {
-         //   var nativeView = (UWPProgressBar)viewHandler.NativeView;
-           // nativeView.Value = virtualView.Value;
+           var nativeView = (UIProgressView)viewHandler.NativeView;
+
+           nativeView.Progress = (float)virtualView.Value;
         }
 
         public static void MapIsIndeterminateProperty(IViewHandler viewHandler, ProgressBar virtualView)
         {
-            //var nativeView = (UWPProgressBar)viewHandler.NativeView;
-            //nativeView.IsIndeterminate = virtualView.IsIndeterminate;
+            var nativeView = (UIProgressView)viewHandler.NativeView;
+            // TODO Need to use an UIActivityIndicatorView
         }
 
         protected override void DisposeView(UIProgressView nativeView)
